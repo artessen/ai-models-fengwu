@@ -35,7 +35,7 @@ class FengWu(Model):
     # Output
     expver = "fenw"
 
-    def __init__(self, num_threads=1, **kwargs):
+    def __init__(self, num_threads=256, **kwargs):
         super().__init__(**kwargs)
         self.num_threads = num_threads
         self.hour_steps = 6
