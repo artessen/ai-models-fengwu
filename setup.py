@@ -31,21 +31,21 @@ for line in read("ai_models_fengwu/__init__.py").split("\n"):
 assert version
 
 
-def check_gpus():
-    try:
-        n = 0
-        for line in subprocess.check_output(
-            ["nvidia-smi", "-L"],
-            text=True,
-        ).split("\n"):
-            if line.startswith("GPU"):
-                n += 1
-        return n
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        return 0
+# def check_gpus():
+#     try:
+#         n = 0
+#         for line in subprocess.check_output(
+#             ["nvidia-smi", "-L"],
+#             text=True,
+#         ).split("\n"):
+#             if line.startswith("GPU"):
+#                 n += 1
+#         return n
+#     except (subprocess.CalledProcessError, FileNotFoundError):
+#         return 0
 
 
-assert check_gpus() > 0, "FengWu model only support gpu inference"
+# assert check_gpus() > 0, "FengWu model only support gpu inference"
 onnxruntime = "onnxruntime-gpu"
 
 setuptools.setup(
